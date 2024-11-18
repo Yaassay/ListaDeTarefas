@@ -1,4 +1,4 @@
-// Seleção de elementos
+// Seleção de elementos do html que vou manipulat
 const btnAdd = document.getElementById('btnAdd');
 const inputAtividade = document.getElementById('atividade');
 const selectPrioridade = document.getElementById('prioridade');
@@ -6,14 +6,17 @@ const listaTarefas = document.getElementById('tarefas-lista');
 
 // Função para adicionar tarefa
 btnAdd.addEventListener('click', () => {
-    const atividade = inputAtividade.value.trim();
+    const atividade = inputAtividade.value.trim(); //A função trim() remove espaços extras no início e no final da string.
     const prioridade = selectPrioridade.value;
-
-    if (atividade) {
+// se o campo atividade não estiver vazio
+    if (atividade) { 
+        // cria um novo elemento na lista
         const li = document.createElement('li');
-        li.classList.add(prioridade + '-priority');
+        li.classList.add(prioridade + '-priority'); //A classe adicionada ao item de lista depende da prioridade selecionada
 
         // Texto da tarefa
+        //A variável textoTarefa cria um elemento <span> que exibirá 
+        //a descrição da tarefa. O conteúdo do span é definido como o valor da variável atividade.
         const textoTarefa = document.createElement('span');
         textoTarefa.textContent = atividade;
 
@@ -53,13 +56,12 @@ btnAdd.addEventListener('click', () => {
 
         // Limpar campo
         inputAtividade.value = '';
-        inputAtividade.style.backgroundColor = ''; // Reseta a cor do campo
     } else {
         alert('Por favor, insira uma atividade.');
     }
 });
 
-// Função para editar tarefa
+// Função para editar tarefa  é chamada quando o botão de editar é clicado. Ela utiliza prompt para pedir ao usuário um novo texto para a tarefa. 
 function editarTarefa(li, textoTarefa) {
     const novoTexto = prompt('Editar tarefa:', textoTarefa.textContent);
     if (novoTexto) {
