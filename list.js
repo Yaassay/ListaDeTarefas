@@ -12,7 +12,7 @@ btnAdd.addEventListener('click', () => {
     if (atividade) { 
         // cria um novo elemento na lista
         const li = document.createElement('li');
-        li.classList.add(prioridade + '-priority'); //A classe adicionada ao item de lista depende da prioridade selecionada
+        li.classList.add(prioridade + '-priority'); 
 
         // Texto da tarefa
         //A variável textoTarefa cria um elemento <span> que exibirá 
